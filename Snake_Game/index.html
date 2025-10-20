@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Simple Snake Game</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div style="width: 888px; margin: auto;">
+    <canvas id="myCanvas" width="800px" height="600px" style="background-color: #2d3436;">Your browser does not support
+      the canvas element. Please change or update your browser.</canvas>
+  </div>
+  <h2 style="text-align: center;">Use arrow keys to control!</h2>
+
+
+
+
+
+
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var direction, score, balls, food, bigOffer;
+
+    function init() {
+      direction = 'right'
+      score = 0;
+      balls = [
+        { x: 40, y: 40 },
+        { x: 60, y: 40 },
+        { x: 80, y: 40 }
+      ];
+      createFood();
+    }
+    function createFood() {
+      food = { x: Math.floor(Math.random() * 39), y: Math.floor(Math.random() * 24) }
+      for (var i = 0; i < balls.length; i++) {
+        var ball = balls[i];
+        if (food.x * 20 == ball.x && food.y * 20 == ball.y) {
+          createFood();
+        }
+      }
+    }
+
+
+    init()
+    document.addEventListener("keydown", function (e) {
+      var keyCode = e.keyCode;
+      if (keyCode == 37 && direction != 'right') {
+        direction = 'left';
+      } else if (keyCode == 38 && direction != 'down') {
+        direction = 'up';
+      } else if (keyCode == 39 && direction != 'left') {
+        direction = 'right';
+      } else if (keyCode == 40 && direction != 'up') {
+        direction = 'down';
+      }
+    })
+
+    function add() {
+      var lastBall = balls[balls.length - 1];
+      if (direction == 'right') {
+        balls.push({ x: lastBall.x + 20, y: lastBall.y });
+      } else if (direction == 'down') {
+        balls.push({ x: lastBall.x, y: lastBall.y + 20 });
+      } else if (direction == 'left') {
+        balls.push({ x: lastBall.x - 20, y: lastBall.y });
+      } else if (direction == 'up') {
+        balls.push({ x: lastBall.x, y: lastBall.y - 20 });
+      }
+
+    }
+
+    function ani() {
+      ctx.clearRect(0, 0, 888, 555)
+      balls.shift();
+      add();
+      var lastBall = balls[balls.length - 1];
+      if (lastBall.x == food.x * 20 && lastBall.y == food.y * 20) {
+        score += 5;
+        add();
+        createFood();
+      }
+
+      for (var i = 0; i < balls.length; i++) {
+        ball = balls[i];
+        if (i == balls.length - 1) {
+          ctx.fillStyle = '#00b894'
+        } else {
+          ctx.fillStyle = '#ff7675'
+        }
+        if (ball.x > 780) {
+          ball.x = 0;
+        } else if (ball.x < 0) {
+          ball.x = 780;
+        } else if (ball.y > 480) {
+          ball.y = 0;
+        } else if (ball.y < 0) {
+          ball.y = 480;
+        }
+        if (ball.x == lastBall.x && ball.y == lastBall.y && i < balls.length - 2) {
+          alert("You died, Game Over! Your Score is : " + score)
+          init()
+        }
+        ctx.fillRect(ball.x, ball.y, 19, 19)
+      }
+      ctx.fillRect(food.x * 20, food.y * 20, 19, 19)
+      ctx.fillText("Score: " + score, 300, 19)
+
+
+    }
+    setInterval(ani, 111);
+  </script>
+</body>
+
+</html>
