@@ -1,0 +1,174 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    min-width: 500px;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.container {
+    min-width: 500px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: rgb(209, 86, 28);
+    color: rgb(255, 151, 125);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+}
+
+#clock_switcher {
+    font-size: larger;
+    color: #130f40;
+    position: absolute;
+    top: 10px;
+    left: 48%;
+    text-decoration: none;
+    padding: 5px;
+    background: #ffbe76;
+    border-radius: 10px;
+}
+
+#full_page_button {
+    font-size: larger;
+    color: #130f40;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
+    padding: 5px;
+    background: #ffbe76;
+    border-radius: 10px;
+}
+
+#full_screen_button {
+    font-size: larger;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #130f40;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px;
+    background: #ffbe76;
+    border-radius: 10px;
+}
+
+#dates {
+    color: rgb(255, 255, 255);
+    font-size: 80px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+.main_clock_div {
+    text-shadow: 0px 0px 20px lime;
+    color: white;
+    overflow: hidden;
+}
+
+#hours {
+    font-size: 100px;
+}
+
+#minutes {
+    font-size: 90px;
+}
+
+#seconds {
+    font-size: 80px;
+}
+
+#am_or_pm {
+    font-size: 70px;
+}
+
+@media only screen and (max-width: 1000px) {
+    #dates {
+        color: rgb(255, 255, 255);
+        font-size: 40px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #hours {
+        font-size: 60px;
+        color: white;
+    }
+
+    #minutes {
+        font-size: 50px;
+        color: white;
+    }
+
+    #seconds {
+        font-size: 40px;
+        color: white;
+    }
+
+    #am_or_pm {
+        font-size: 30px;
+        color: white;
+    }
+
+    #analog_clock {
+        scale: 1.5;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    #analog_clock {
+        scale: 1.3;
+    }
+}
+
+
+/*----- Codes for analog_clock div ------- */
+
+#analog_clock {
+    position: relative;
+}
+
+#analog_clock_image {
+    height: 45vw;
+    width: 45vw;
+}
+
+#hour_pointer,
+#minute_pointer,
+#second_pointer {
+    position: absolute;
+    transform-origin: bottom;
+}
+
+#hour_pointer {
+    width: 1%;
+    height: 23%;
+    background: #000000;
+    border-radius: 10px;
+    top: 27.1%;
+    left: 49.5%;
+}
+
+#minute_pointer {
+    width: 0.8%;
+    height: 35%;
+    background: #000000;
+    border-radius: 10px;
+    top: 15.1%;
+    left: 49.5%;
+}
+
+#second_pointer {
+    width: 0.5%;
+    height: 40%;
+    background: #000000;
+    border-radius: 10px;
+    top: 10.1%;
+    left: 49.5%;
+}

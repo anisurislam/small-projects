@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="clocks.css">
+</head>
+<body>
+    <div class="clocks">
+        <!-- Analog Clock -->
+
+        <div id="analog_clock_container" class="container">
+           
+    
+            <div class="clock">
+                <div id="analog_clock">
+                    <img id="analog_clock_image" src="analog.png">
+                    <div id="hour_pointer"></div>
+                    <div id="minute_pointer"></div>
+                    <div id="second_pointer"></div>
+                </div>
+            </div>
+        </div>
+        <script src="analog.js"></script>
+    
+    
+    
+        <!-- Digital Clock -->
+        <div id="digital_clock_container" class="container">
+           
+            <div id="dates"></div>
+            <div id="time"></div>
+            
+    
+            <div class="clock">
+                <!-- <div id="hours"></div>
+                <div id="minutes"></div>
+                <div id="seconds"></div> -->
+                <div class="main_clock_div">
+                    <div id="hours">Syncing...</div>
+                    <div id="minutes"></div>
+                    <div id="seconds"></div>
+                    <div id="am_or_pm"></div>
+                </div>
+    
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </div>
+</body>
+</html>
