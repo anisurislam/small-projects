@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Loading Animations</title>
 	<style>
-		body{
+		body {
 			margin: 2%;
 			padding: 2%;
 			background-color: #34495e;
 			height: 100vh;
-			display: block;
-			align-items: center;
-			justify-content: center;
 			font-family: "montserrat", sans-serif;
+			display: flex;
+			justify-content: center;
+		}
+		.container{
+			margin: 0 auto;
 		}
 
 		/*---- start loading 1 ----*/
-		.loading1{
+		.loading1 {
 			width: 200px;
 			height: 200px;
 			box-sizing: border-box;
@@ -27,7 +30,9 @@
 			position: relative;
 			animation: animation1_in_loading1 2s linear infinite;
 		}
-		.loading1::before, .loading1::after{
+
+		.loading1::before,
+		.loading1::after {
 			content: '';
 			width: 200px;
 			height: 200px;
@@ -37,15 +42,18 @@
 			box-sizing: border-box;
 			border-radius: 50%;
 		}
-		.loading1::before{
+
+		.loading1::before {
 			border-top: 10px solid #e67e22;
 			transform: rotate(120deg);
 		}
-		.loading1::after{
+
+		.loading1::after {
 			border-top: 10px solid #3498db;
 			transform: rotate(240deg);
 		}
-		.loading1 span{
+
+		.loading1 span {
 			position: absolute;
 			width: 200px;
 			height: 200px;
@@ -54,23 +62,27 @@
 			line-height: 200px;
 			animation: animation2_in_loading1 2s linear infinite;
 		}
+
 		@keyframes animation1_in_loading1 {
-			to{
+			to {
 				transform: rotate(360deg);
 			}
 		}
+
 		@keyframes animation2_in_loading1 {
-			to{
+			to {
 				transform: rotate(-360deg);
 			}
 		}
+
 		/*---- start loading 2 ----*/
-		.loading2{
+		.loading2 {
 			width: 150px;
 			margin: 2%;
 			position: relative;
 		}
-		.loading_element_1_in-loading2{
+
+		.loading_element_1_in-loading2 {
 			position: relative;
 			width: 100%;
 			height: 10px;
@@ -78,7 +90,8 @@
 			border-radius: 10px;
 			animation: animation1_in_loading2 4s linear 1.75s infinite;
 		}
-		.loading_element_1_in-loading2::before{
+
+		.loading_element_1_in-loading2::before {
 			content: '';
 			display: block;
 			position: absolute;
@@ -88,7 +101,8 @@
 			box-shadow: 15px 0 15px 0 #69d2e7;
 			animation: animation2_in_loading2 2s linear infinite;
 		}
-		.loading_element_2_in-loading2{
+
+		.loading_element_2_in-loading2 {
 			position: absolute;
 			width: 100%;
 			top: 10px;
@@ -97,44 +111,58 @@
 			text-align: center;
 			animation: animation3_in_loading2 2s linear infinite;
 		}
+
 		@keyframes animation1_in_loading2 {
-			0%{
+			0% {
 				transform: rotateY(0deg);
 			}
-			6.25%, 50%{
+
+			6.25%,
+			50% {
 				transform: rotateY(180deg);
 			}
-			56.25%, 100%{
+
+			56.25%,
+			100% {
 				transform: rotateY(360deg);
 			}
 		}
+
 		@keyframes animation2_in_loading2 {
-			0%{
+			0% {
 				width: 0;
 			}
-			87.5%{
+
+			87.5% {
 				width: 100%;
 			}
 		}
+
 		@keyframes animation3_in_loading2 {
-			0%, 100%{
+
+			0%,
+			100% {
 				top: 10px;
 			}
-			12.5%{
+
+			12.5% {
 				top: 30px;
 			}
 		}
+
 		/*---- start loading 3 ----*/
-		.loading3{
+		.loading3 {
 			width: 200px;
 		}
-		.loading_element_1_in-loading3{
+
+		.loading_element_1_in-loading3 {
 			overflow: hidden;
 			height: 50px;
 			border-left: 2px solid #3d3d3d;
 			border-right: 2px solid #3d3d3d;
 		}
-		.loading_element_1_in-loading_element_1_in-loading3{
+
+		.loading_element_1_in-loading_element_1_in-loading3 {
 			position: relative;
 			left: -200px;
 			margin-top: 10px;
@@ -145,7 +173,8 @@
 			box-shadow: 0 0 4px 1px #21ffb9;
 			animation: animation1_in_loading3 1.5s infinite cubic-bezier(0.75, 0, 0.25, 1);
 		}
-		.loading_element_2_in-loading_element_1_in-loading3{
+
+		.loading_element_2_in-loading_element_1_in-loading3 {
 			opacity: 1;
 			margin-top: -22px;
 			width: 100%;
@@ -155,30 +184,37 @@
 			text-shadow: 0 1px #87ffe5;
 			animation: animation2_in_loading3 1.5s infinite cubic-bezier(0.75, 0, 0.25, 1);
 		}
+
 		@keyframes animation1_in_loading3 {
-			0%{
+			0% {
 				transform: translateY(0);
 			}
-			100%{
+
+			100% {
 				transform: translateX(400px);
 			}
 		}
+
 		@keyframes animation2_in_loading3 {
-			0%{
+			0% {
 				opacity: 1;
 			}
-			10%{
+
+			10% {
 				opacity: 1;
 			}
-			50%{
+
+			50% {
 				opacity: 0;
 			}
-			90%{
+
+			90% {
 				opacity: 1;
 			}
 		}
+
 		/*---- start loading 4 ----*/
-		.loading4{
+		.loading4 {
 			width: 142px;
 			height: 142px;
 			padding: 0;
@@ -186,7 +222,8 @@
 			position: relative;
 			animation: animation1_in_loading4 10s infinite linear;
 		}
-		.loading4 li{
+
+		.loading4 li {
 			border: 6px solid transparent;
 			border-bottom: none;
 			transform-origin: 50% 100% 0;
@@ -195,7 +232,8 @@
 			left: 50%;
 			animation: animation1_in_loading4 4s infinite cubic-bezier(0.9, 0.6, 0.8, 0.03);
 		}
-		.loading4 li:nth-child(1){
+
+		.loading4 li:nth-child(1) {
 			width: 44px;
 			height: 22px;
 			margin: -22px 0 0 -22px;
@@ -204,7 +242,8 @@
 			border-top-right-radius: 36px;
 			animation-timing-function: cubic-bezier(0.09, 0.3, 0.12, 0.03);
 		}
-		.loading4 li:nth-child(2){
+
+		.loading4 li:nth-child(2) {
 			width: 58px;
 			height: 29px;
 			margin: -29px 0 0 -29px;
@@ -213,7 +252,8 @@
 			border-top-right-radius: 42px;
 			animation-timing-function: cubic-bezier(0.09, 0.6, 0.24, 0.03);
 		}
-		.loading4 li:nth-child(3){
+
+		.loading4 li:nth-child(3) {
 			width: 72px;
 			height: 36px;
 			margin: -36px 0 0 -36px;
@@ -222,7 +262,8 @@
 			border-top-right-radius: 48px;
 			animation-timing-function: cubic-bezier(0.09, 0.9, 0.36, 0.03);
 		}
-		.loading4 li:nth-child(4){
+
+		.loading4 li:nth-child(4) {
 			width: 86px;
 			height: 43px;
 			margin: -43px 0 0 -43px;
@@ -231,7 +272,8 @@
 			border-top-right-radius: 54px;
 			animation-timing-function: cubic-bezier(0.09, 1.2, 0.48, 0.03);
 		}
-		.loading4 li:nth-child(5){
+
+		.loading4 li:nth-child(5) {
 			width: 100px;
 			height: 50px;
 			margin: -50px 0 0 -50px;
@@ -240,7 +282,8 @@
 			border-top-right-radius: 60px;
 			animation-timing-function: cubic-bezier(0.09, 1.5, 0.6, 0.03);
 		}
-		.loading4 li:nth-child(6){
+
+		.loading4 li:nth-child(6) {
 			width: 114px;
 			height: 57px;
 			margin: -57px 0 0 -57px;
@@ -249,7 +292,8 @@
 			border-top-right-radius: 66px;
 			animation-timing-function: cubic-bezier(0.09, 1.8, 0.72, 0.03);
 		}
-		.loading4 li:nth-child(7){
+
+		.loading4 li:nth-child(7) {
 			width: 128px;
 			height: 64px;
 			margin: -64px 0 0 -64px;
@@ -258,23 +302,27 @@
 			border-top-right-radius: 72px;
 			animation-timing-function: cubic-bezier(0.09, 2.1, 0.84, 0.03);
 		}
+
 		@keyframes animation1_in_loading4 {
-			100%{
+			100% {
 				transform: rotate(360deg);
 			}
 		}
+
 		/*---- start loading 5 ----*/
-		.loading5{
+		.loading5 {
 			position: absolute;
 		}
-		.percent{
+
+		.percent {
 			color: #999;
 			font-size: 100px;
 			font-weight: 400;
 			text-align: center;
 			margin-bottom: 15px;
 		}
-		.text{
+
+		.text {
 			position: absolute;
 			color: #fdb5ca;
 			left: 40%;
@@ -282,29 +330,35 @@
 			line-height: 21px;
 			display: none;
 		}
-		.text-blink{
+
+		.text-blink {
 			animation: blink .7s ease-in-out .1s;
 		}
+
 		@keyframes blink {
-			0%{
+			0% {
 				opacity: 1;
 			}
-			50%{
+
+			50% {
 				opacity: .2;
 			}
-			100%{
+
+			100% {
 				opacity: 1;
 			}
 
 		}
-		.progress-bar{
+
+		.progress-bar {
 			width: 400px;
 			height: 21px;
 			background-color: #111;
 			border-radius: 13px;
 			box-sizing: border-box;
 		}
-		.progress{
+
+		.progress {
 			width: 200px;
 			height: 21px;
 			background-color: #f60d54;
@@ -312,82 +366,86 @@
 		}
 	</style>
 </head>
+
 <body>
-	<!-- start loading1 -->
-	<div class="loading1">
-		<span>Loading...</span>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<!-- start loading2 -->
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="loading2">
-		<div class="loading_element_1_in-loading2"></div>
-		<div class="loading_element_2_in-loading2">Loading...</div>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<!-- start loading3 -->
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="loading3">
-		<div class="loading_element_1_in-loading3">
-			<div class="loading_element_1_in-loading_element_1_in-loading3"></div>
-			<div class="loading_element_2_in-loading_element_1_in-loading3">LOADING</div>
+	<div class="container">
+		<!-- start loading1 -->
+		<div class="loading1">
+			<span>Loading...</span>
 		</div>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<!-- start loading4 -->
-	<br>
-	<br>
-	<br>
-	<br>
-	<ul class="loading4">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-	<br>
-	<br>
-	<br>
-	<br>
-	<!-- start loading5 -->
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="loading5">
-		<div class="percent">100%</div>
-		<div class="text">Completed!</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- start loading2 -->
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="loading2">
+			<div class="loading_element_1_in-loading2"></div>
+			<div class="loading_element_2_in-loading2">Loading...</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- start loading3 -->
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="loading3">
+			<div class="loading_element_1_in-loading3">
+				<div class="loading_element_1_in-loading_element_1_in-loading3"></div>
+				<div class="loading_element_2_in-loading_element_1_in-loading3">LOADING</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- start loading4 -->
+		<br>
+		<br>
+		<br>
+		<br>
+		<ul class="loading4">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- start loading5 -->
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="loading5">
+			<div class="percent">100%</div>
+			<div class="text">Completed!</div>
 			<div class="progress-bar">
 				<div class="progress"></div>
 			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- start loading6 -->
+		<br>
+		<br>
+		<br>
+		<br>
 	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<!-- start loading6 -->
-	<br>
-	<br>
-	<br>
-	<br>
+
 
 
 
@@ -398,12 +456,12 @@
 		var count = 4;
 		var per = 16;
 		var loading5 = setInterval(animate, 50);
-		function animate(){
-			if(count == 100 && per == 400){
+		function animate() {
+			if (count == 100 && per == 400) {
 				Completed.style.display = "block";
 				percent.classList.add("text-blink")
 				clearInterval(loading5);
-			}else{
+			} else {
 				per = per + 4;
 				count = count + 1;
 				progress.style.width = per + 'px';
@@ -412,4 +470,5 @@
 		}
 	</script>
 </body>
+
 </html>
